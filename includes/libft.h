@@ -6,7 +6,7 @@
 /*   By: tisantos <tisantos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 18:33:47 by marvin            #+#    #+#             */
-/*   Updated: 2021/05/23 04:36:12 by tisantos         ###   ########.fr       */
+/*   Updated: 2021/05/23 17:37:58 by tisantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,6 @@ char				*ft_itoa_longlong(long long n);
 char				**ft_split2(char const *s, const char *delimiters);
 int					ft_strcmp(char *s1, char *s2);
 void				free_array(char **array);
+int					ft_isstringalpha(char *string);
+int					ft_isstringdigit(char *string);
 #endif

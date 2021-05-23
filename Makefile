@@ -7,7 +7,8 @@ HEADER = ./includes/libft.h
 
 FREE = ft_free_array
 
-IS = ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
+IS = ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint ft_isstringdigit \
+	ft_isstringalpha
 
 LST_ORIGINAL = ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone \
 				ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize
