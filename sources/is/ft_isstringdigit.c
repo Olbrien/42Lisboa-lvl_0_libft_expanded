@@ -6,7 +6,7 @@
 /*   By: tisantos <tisantos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 16:32:51 by tisantos          #+#    #+#             */
-/*   Updated: 2021/05/23 17:54:03 by tisantos         ###   ########.fr       */
+/*   Updated: 2021/05/23 18:17:13 by tisantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	ft_isstringdigit(char *string)
 	a = 0;
 	while (string[i] != '\0')
 	{
+		if (i == 0 && string[i] == '-')
+		{
+			i++;
+			continue ;
+		}
 		if (ft_isdigit(string[i]) == 1)
 			a = 1;
 		else
