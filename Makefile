@@ -14,7 +14,7 @@ LST_ORIGINAL = ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone \
 				ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize
 
 LST_WITH_PREVIOUS = ft_lstnew2 ft_lstadd_back2 ft_lstclear2 ft_lstgoto_begin2 \
-					ft_lstgoto_end2 ft_lstadd_front2 ft_lstsize2
+					ft_lstgoto_end2 ft_lstadd_front2 ft_lstsize2 ft_lstremove_last2
 
 MATH = ft_pow
 

@@ -6,7 +6,7 @@
 /*   By: tisantos <tisantos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 18:33:47 by marvin            #+#    #+#             */
-/*   Updated: 2021/05/24 20:47:17 by tisantos         ###   ########.fr       */
+/*   Updated: 2021/05/24 22:40:39 by tisantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ t_list2				*ft_lstgoto_end2(t_list2 **lst);
 t_list2				*ft_lstgoto_begin2(t_list2 **lst);
 void				ft_lstadd_front2(t_list2 **lst, t_list2 *new);
 int					ft_lstsize2(t_list2 *lst);
+void				ft_lstremove2(t_list2 **lst);
 
 /*
 ** Math
