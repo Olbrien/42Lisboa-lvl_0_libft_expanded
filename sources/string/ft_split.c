@@ -6,53 +6,71 @@
 /*   By: tisantos <tisantos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:59:52 by marvin            #+#    #+#             */
-/*   Updated: 2021/05/23 04:42:26 by tisantos         ###   ########.fr       */
+/*   Updated: 2021/05/24 03:58:38 by tisantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-int	count_c(const char *s, char c)
+static int	count_words(const char *str, char c)
 {
-	int	count;
+	int	i;
+	int	trigger;
 
-	count = 0;
-	while (*s)
+	i = 0;
+	trigger = 0;
+	while (*str)
 	{
-		if (*s++ == c)
-			continue ;
-		count++;
-		while (*s && *s != c)
-			s++;
+		if (*str != c && trigger == 0)
+		{
+			trigger = 1;
+			i++;
+		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
 	}
-	return (count);
+	return (i);
+}
+
+static char	*word_dup(const char *str, int start, int finish)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = malloc((finish - start + 1) * sizeof(char));
+	while (start < finish)
+		word[i++] = str[start++];
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	t_split	val;
+	size_t	i;
+	size_t	j;
+	int		index;
+	char	**split;
 
-	val.j = 0;
 	if (!s)
-		return (NULL);
-	val.big_new = malloc(sizeof(char *) * (count_c(s, c) + 1));
-	if (!(val.big_new))
-		return (NULL);
-	val.i = 0;
-	val.start = 0;
-	while ((s[val.start + val.i] != 0) && (count_c(s, c) > 0))
+		return (0);
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!split)
+		return (0);
+	i = -1;
+	j = 0;
+	index = -1;
+	while (++i <= ft_strlen(s))
 	{
-		while (s[val.start] == c)
-			val.start++;
-		while (s[val.start + val.i] != c && s[val.start + val.i] != '\0')
-			val.i++;
-		val.big_new[val.j++] = ft_substr(s, val.start, val.i);
-		while (s[val.start + val.i] == c && s[val.start + val.i] != '\0')
-			val.i++;
-		val.temp = (char *)s + val.i;
-		s = val.temp;
-		val.i = 0;
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			split[j++] = word_dup(s, index, i);
+			index = -1;
+		}
 	}
-	val.big_new[val.j] = 0;
-	return (val.big_new);
+	split[j] = 0;
+	return (split);
 }

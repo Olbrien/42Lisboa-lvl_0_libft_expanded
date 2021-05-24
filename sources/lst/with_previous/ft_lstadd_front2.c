@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isstringdigit.c                                 :+:      :+:    :+:   */
+/*   ft_lstadd_front2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tisantos <tisantos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 16:32:51 by tisantos          #+#    #+#             */
-/*   Updated: 2021/05/23 18:15:08 by tisantos         ###   ########.fr       */
+/*   Created: 2021/05/24 18:30:13 by tisantos          #+#    #+#             */
+/*   Updated: 2021/05/24 18:30:57 by tisantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../../includes/libft.h"
 
-int	ft_isstringdigit(char *string)
+void	ft_lstadd_front2(t_list2 **lst, t_list2 *new)
 {
-	int	i;
-	int	a;
-
-	i = 0;
-	a = 0;
-	while (string[i] != '\0')
+	if (lst && new)
 	{
-		if (i == 0 && string[i] == '-')
-		{
-			i++;
-			continue ;
-		}
-		if (ft_isdigit(string[i]) == 1)
-			a = 1;
-		else
-			return (0);
-		i++;
+		new->next = *lst;
+		(*lst)->previous = new;
+		*lst = new;
 	}
-	return (a);
 }

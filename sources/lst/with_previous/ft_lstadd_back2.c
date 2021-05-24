@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isstringdigit.c                                 :+:      :+:    :+:   */
+/*   ft_lstadd_back2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tisantos <tisantos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 16:32:51 by tisantos          #+#    #+#             */
-/*   Updated: 2021/05/23 18:15:08 by tisantos         ###   ########.fr       */
+/*   Created: 2021/05/24 16:54:38 by tisantos          #+#    #+#             */
+/*   Updated: 2021/05/24 16:58:07 by tisantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../../includes/libft.h"
 
-int	ft_isstringdigit(char *string)
+void	ft_lstadd_back2(t_list2 **lst, t_list2 *new)
 {
-	int	i;
-	int	a;
+	t_list2		*begin;
 
-	i = 0;
-	a = 0;
-	while (string[i] != '\0')
+	if (!*lst)
 	{
-		if (i == 0 && string[i] == '-')
-		{
-			i++;
-			continue ;
-		}
-		if (ft_isdigit(string[i]) == 1)
-			a = 1;
-		else
-			return (0);
-		i++;
+		(*lst) = new;
+		return ;
 	}
-	return (a);
+	if (lst && (*lst) && new)
+	{
+		begin = (*lst);
+		if (begin == NULL)
+			(*lst) = new;
+		else
+		{
+			while (begin->next)
+				begin = begin->next;
+			begin->next = new;
+			begin->next->previous = begin;
+		}
+	}
 }
