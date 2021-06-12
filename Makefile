@@ -31,7 +31,7 @@ STRING = ft_split2 ft_strchr ft_strdup ft_strjoinchr_bonus ft_strlcpy \
 		ft_strlcat ft_strlen ft_strncmp ft_strrchr ft_substr ft_strcpy
 
 TO = ft_atoi ft_itoa_longlong ft_itoa_unsigned_longlong ft_itoa ft_tolower \
-	ft_toupper
+	ft_toupper ft_atoll
 
 SRC = $(addsuffix .c, $(addprefix sources/free/, $(FREE))) \
 	$(addsuffix .c, $(addprefix sources/is/, $(IS))) \

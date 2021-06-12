@@ -6,7 +6,7 @@
 /*   By: tisantos <tisantos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 18:33:47 by marvin            #+#    #+#             */
-/*   Updated: 2021/05/25 06:52:42 by tisantos         ###   ########.fr       */
+/*   Updated: 2021/06/12 11:57:41 by tisantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ char				*ft_strcpy(char *dest, char *src);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_atoi(const char *str);
+long long			ft_atoll(const char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_unsigned_longlong(unsigned long long int n);
 char				*ft_itoa_longlong(long long n);
